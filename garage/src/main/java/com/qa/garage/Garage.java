@@ -2,11 +2,9 @@ package com.qa.garage;
 
 import java.util.ArrayList;
 
-// Where our business logic is, we will be creating an object of type Garage
 public class Garage {
 	
-	// Create an arraylist to store Data 
-	public ArrayList<Vehicle> garageList = new ArrayList<>();
+public ArrayList<Vehicle> garageList = new ArrayList<>();
 	
 	// Add Vehicle - Takes in data of type Vehicle, and we call it vehicle
 	public boolean addVehicle(Vehicle vehicle) {
@@ -38,15 +36,15 @@ public class Garage {
 	}
 	
 	// Stretch goal - Fix All Vehicles by Type
-	public void fixVehicleByType(String type) {
-		
-		for(Vehicle vehicle : garageList) {
-			System.out.println(vehicle.getClass().getSimpleName().toLowerCase());
-			if(vehicle.getClass().getSimpleName() == type) {
-				float cost = vehicle.fixVehicle();
-				System.out.println(cost);
-				garageList.remove(vehicle);
-			}
-		}
-	}
+//	public void fixVehicleByType(String type) {
+//		
+//		for(Vehicle vehicle : garageList) {
+//			System.out.println(vehicle.getClass().getSimpleName().toLowerCase());
+//			if(vehicle.getClass().getSimpleName() == type) {
+//				float cost = vehicle.fixVehicle();
+//				System.out.println(cost);
+//				garageList.remove(vehicle);
+//			}
+//		}
+//	}
 }
