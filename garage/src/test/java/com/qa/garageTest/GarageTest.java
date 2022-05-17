@@ -1,5 +1,7 @@
 package com.qa.garageTest;
 
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,6 +21,8 @@ public class GarageTest {
 	Car car2 = new Car("b", false, 2, false, "testColour2");
 	Motorbike bike1 = new Motorbike("a", true, true, 1, "testColour1");
 	Motorbike bike2 = new Motorbike("b", false, false, 2, "testColour2");
+	public ArrayList<Vehicle> testList = new ArrayList<>();
+	
 	
 	// Setup
 	
@@ -26,8 +30,14 @@ public class GarageTest {
 	public void setupTest() {
 		testGarage.garageList.clear(); // Accessing the arraylist of the garage object
 		// Before each test there is car1 and bike1 added to the arraylist
-		testGarage.addVehicle(car1);
-		testGarage.addVehicle(bike1);
+		testGarage.addVehicle(car1);  // index 0
+		testGarage.addVehicle(bike1); // index 1
+		
+		// Setting up our test arrayList
+		testList.clear();
+		testList.add(car1);
+		testList.add(bike1);
+		
 		System.out.println("Test Setup Finished");
 	}
 	
@@ -62,6 +72,32 @@ public class GarageTest {
 		// When we are comparing objects, we use assertSame
 		Assertions.assertSame(result, car1);
 		
+	}
+	
+	@Test
+	public void getVehicleTest() {
+		// Arrange
+		int index = 0;
+		Vehicle result;
+		
+		// Act
+		result = testGarage.getVehicle(index);
+		
+		// Assert
+		Assertions.assertEquals(car1, result);
+	}
+	
+	@Test
+	public void getAllVehiclesTest() {
+		// Arrange
+		ArrayList<Vehicle> result; 
+		
+		// Act
+		result = testGarage.getAllVehicles();
+		System.out.println(result);
+		
+		// Assert
+		Assertions.assertEquals(testList, result);
 	}
 
 }
